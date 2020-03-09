@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html
+       xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"   
+      xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+
+<head>
+<meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+<title>Creation Produit </title>
+
+</head>
+<body>
+<h:form>
+<h:outputLabel>Nom Produit:</h:outputLabel><br/>
+<h:inputText value="#{gp.produit.nomProduit}"></h:inputText><br/>
+<h:outputLabel>Description: </h:outputLabel><br/>
+<h:inputText value="#{gp.produit.descProduit}"></h:inputText><br/>
+<h:outputLabel>Prix: </h:outputLabel><br/>
+<h:inputText value="#{gp.produit.prixProduit}"></h:inputText><br/>
+<h:outputLabel>Marque: </h:outputLabel><br/>
+<h:selectOneMenu value="#{gp.marque.idMarque}">
+<f:selectItems value="#{gp.listeMarque()}" var="marque" itemLabel=" #{marque.nomMarque}" itemValue=" #{marque.idMarque}" /></h:selectOneMenu>
+<br/>
+<h:commandButton value="valider" action="#{gp.ajoutProduit()}"></h:commandButton>
+</h:form>
+<br/>
+<h:outputLink value="index.xhtml">Accueil</h:outputLink>
+</body>
+</html>
